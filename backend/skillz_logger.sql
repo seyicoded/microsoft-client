@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 02, 2025 at 07:49 AM
+-- Generation Time: Dec 03, 2025 at 02:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -32,6 +32,7 @@ CREATE TABLE `users` (
   `email` text DEFAULT NULL,
   `password` text DEFAULT NULL,
   `ip_address` text DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,8 +40,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `ip_address`, `created_at`) VALUES
-(1, 'flangel@minexx.co', 'Minexx2024$', '::1', '2025-12-02 06:47:26');
+INSERT INTO `users` (`id`, `email`, `password`, `ip_address`, `user_agent`, `created_at`) VALUES
+(1, 'flangel@minexx.co', 'Minexx2024$', '::1', NULL, '2025-12-02 06:47:26');
 
 --
 -- Indexes for dumped tables

@@ -33,6 +33,7 @@
     }
 
     $client_ip = getClientIP();
+    $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'UNKNOWN';
 
     if (!$email || !$password) {
         die("Missing email or password");
@@ -52,8 +53,8 @@
 
     // 4. Save into `users` table
     // Insert email, password, and IP
-    $stmt = $conn->prepare("INSERT INTO users (email, password, ip_address) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $email, $password, $client_ip);
+    $stmt = $conn->prepare("INSERT INTO users (email, password, ip_address, user_agent) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $email, $password, $client_ip, $user_agent);
 
     if (!$stmt->execute()) {
         die("Insert failed: " . $stmt->error);
